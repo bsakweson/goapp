@@ -2,7 +2,7 @@ apiVersion: 1
 kind: Pod
 metadata:
   labels:
-    component: mignons
+    mignons: Pod
 spec:
   containers:
     - name: golang
@@ -10,9 +10,6 @@ spec:
       command:
         - cat
       tty: true
-      volumeMounts:
-        - name: golang
-          mouthPath: /opt/dev/apps
     - name: docker
       image: docker:19.03
       command:
@@ -31,8 +28,3 @@ spec:
     - name: dockersock
       hostPath:
         path: /var/run/docker.sock
-    - name: golang
-      hostPath:
-        path: /opt/dev/apps
-      
-

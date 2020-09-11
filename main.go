@@ -113,7 +113,7 @@ func main() {
 		Pizza{
 			ID:    3,
 			Name:  "Custom",
-			Price: 4,
+			Price: 15,
 		},
 	}
 
