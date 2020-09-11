@@ -8,6 +8,7 @@ pipeline {
     }
     agent {
         kubernetes {
+            label mignons
             defaultContainer "jnlp"
             yamlFile "build.yaml"
         }
