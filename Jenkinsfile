@@ -8,6 +8,7 @@ pipeline {
     }
     agent {
         kubernetes {
+            label podlabel
             defaultContainer "jnlp"
             yamlFile "build.yaml"
         }
