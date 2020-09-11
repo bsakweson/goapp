@@ -1,8 +1,7 @@
 apiVersion: 1
 kind: Pod
 metadata:
-  labels:
-    mignons: Pod
+  name: jenkins-agent
 spec:
   containers:
     - name: golang
