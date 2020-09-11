@@ -8,43 +8,8 @@ pipeline {
     }
     agent {
         kubernetes {
-            label podlabel
-            yaml """
-    kind: Pod
-    metadata:
-    name: jenkins-agent
-    spec:
-    containers:
-        - name: golang
-        image: golang:1.14
-        command:
-            - cat
-        tty: true
-        volumeMounts:
-            - name: golang
-            mouthPath: /opt/dev/apps
-        - name: docker
-        image: docker:19.03
-        command:
-            - cat
-        tty: true
-        privileged: true
-        volumeMounts:
-            - name: dockersock
-            mountPath: /var/run/docker.sock
-        - name: helm
-        image: lachlanevenson/k8s-helm:v3.3.1
-        command:
-            - cat
-        tty: true
-    volumes:
-        - name: dockersock
-        hostPath:
-            path: /var/run/docker.sock
-        - name: golang
-        hostPath:
-            path: /opt/dev/apps
-    """
+            defaultContainer "jnlp"
+            yamlFile "build.yaml"
         }
     }
     stages {
