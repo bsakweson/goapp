@@ -60,7 +60,9 @@ volumes: [
                 namespace = "development"
             }else if(gitBranch == "release") {
                 namespace = "production"
-            }
+            } else {
+                namespace = "development"
+            } 
 
             container("helm"){
                 sh "helm upgrade goapp-${namespace} ./goapp -n ${namespace} -i --wait --set name=goapp-${namespace} --set image.tag=${BUILD_NUMBER}"
