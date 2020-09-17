@@ -1,3 +1,4 @@
+// This is a test
 def label = "mignon-${UUID.randomUUID().toString()}"
 def namespace
 
