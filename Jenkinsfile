@@ -48,7 +48,7 @@ volumes: [
 
         stage("Push Image To Registry") {
             container("docker") {
-                sh "docker push bsakweson/goapp:${BUILD_NUMBER}"
+                sh "docker push ${DOCKER_HUB_USER}/goapp:${BUILD_NUMBER}"
             }
         }
 
