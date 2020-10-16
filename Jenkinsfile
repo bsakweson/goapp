@@ -72,7 +72,7 @@ volumes: [
             } 
 
             container("helm"){
-                sh "helm upgrade goapp-${namespace} ./goapp -n ${namespace} -i --wait --set name=goapp-${namespace} --set image.tag=${BUILD_NUMBER}"
+                sh "helm upgrade goapp-${BUILD_NUMBER}-${namespace} ./goapp -n ${namespace} -i --wait --set name=goapp-${BUILD_NUMBER}-${namespace} --set image.tag=${BUILD_NUMBER}"
             }
         }
     }
