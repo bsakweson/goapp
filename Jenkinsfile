@@ -48,7 +48,14 @@ volumes: [
 
         stage("Push Image To Registry") {
             container("docker") {
-                sh "docker push ${DOCKER_HUB_USER}/goapp:${BUILD_NUMBER}"
+                withCredentials([[$class: "UsernamePasswordMultiBinding",
+                credentialsId: "dockerhub-bsakweson",
+                usernameVariable: "DOCKER_HUB_USER",
+                passwordVariable: "DOCKER_HUB_PASSWORD"]]) {
+                    sh """
+                    docker push ${DOCKER_HUB_USER}/goapp:${BUILD_NUMBER}
+                    """
+                }
             }
         }
 
