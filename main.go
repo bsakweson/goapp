@@ -115,6 +115,11 @@ func main() {
 			Name:  "Custom",
 			Price: 15,
 		},
+		Pizza{
+			ID:    3,
+			Name:  "wonder pizza",
+			Price: 15,
+		},
 	}
 
 	mux := http.NewServeMux()
